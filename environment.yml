@@ -1,0 +1,10 @@
+# conda env create -f environment.yml
+name: cloudlabprofile
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - pip
+  - python=3.10
+  - pip:
+      - geni-lib==0.9.9.4
