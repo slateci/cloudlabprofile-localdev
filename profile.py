@@ -10,7 +10,7 @@ import geni.rspec.emulab as emulab
 import geni.rspec.igext as igext
 
 # Define OS image
-OS_IMAGE = 'urn:publicid:IDN+emulab.net+image+emulab-ops:UBUNTU20-64-STD'
+OS_IMAGE = 'urn:publicid:IDN+emulab.net+image+emulab-ops:UBUNTU22-64-BETA'
 
 # Create a portal context, needed to define parameters
 pc = portal.Context()
