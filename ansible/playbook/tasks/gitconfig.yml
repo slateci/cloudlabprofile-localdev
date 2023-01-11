@@ -1,0 +1,36 @@
+---
+
+- name: Add system-wide gitignore
+  become: yes
+  template:
+    src: 'templates/gitignore.j2'
+    dest: '/etc/gitignore'
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: Add gitconfig pull.ff system-wide
+  become: yes
+  community.general.git_config:
+    name: pull.ff
+    scope: system
+    value: only
+
+- name: Add gitconfig core.excludesfile system-wide
+  become: yes
+  community.general.git_config:
+    name: core.excludesfile
+    scope: system
+    value: '/etc/gitignore'
+
+- name: "Add gitconfig user.email globally for {{ ansible_user }}"
+  community.general.git_config:
+    name: user.email
+    scope: global
+    value: "{{ github_user_email }}"
+
+- name: "Add gitconfig user.name globally for {{ ansible_user }}"
+  community.general.git_config:
+    name: user.name
+    scope: global
+    value: "{{ github_user_name }}"

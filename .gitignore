@@ -1,0 +1,6 @@
+# Ansible
+.cache/
+ansible/playbook/group_vars/cloudlab.yml
+
+# Other
+*.[Ll]og

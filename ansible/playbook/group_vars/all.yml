@@ -1,0 +1,6 @@
+---
+
+#- CLion Remote-related options:
+clionremote_image:
+  name: "hub.opensciencegrid.org/slate/slate-server-development"
+  tag: "1.0.0"
