@@ -1,1 +1,3 @@
+ansible
+ansible-lint
 geni-lib==0.9.9.4
