@@ -1,6 +1,12 @@
 ---
 
-#- CLion Remote-related options:
-clionremote_image:
-  name: "hub.opensciencegrid.org/slate/slate-server-development"
-  tag: "1.0.0"
+#- Architecture Mappings:
+#
+# Used to help translate {{ ansible_architecture }} into $(dpkg --print-architecture)-like
+# output.
+arch_map:
+  i386: '386'
+  x86_64: 'amd64'
+  aarch64: 'arm64'
+  armv7l: 'armv7'
+  armv6l: 'armv6'
