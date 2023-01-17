@@ -1,0 +1,9 @@
+# {{ ansible_managed }}
+
+## General
+
+### GitHub
+Host github.com
+  HostName github.com
+  IdentityFile {{ github_ssk_keypath.stdout }}
+  User git

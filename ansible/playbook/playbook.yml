@@ -67,7 +67,10 @@
     - name: Bash shell config
       include_tasks: "tasks/bashrc.yml"
 
-    - name: Git Config
+    - name: SSH config
+      include_tasks: "tasks/sshconfig.yml"
+
+    - name: Git config
       include_tasks: "tasks/gitconfig.yml"
 
     - name: Checking if repo already checked out
@@ -84,3 +87,4 @@
         version: "{{ github_branch }}"
         force: yes
         update: yes
+        accept_newhostkey: yes

@@ -2,7 +2,7 @@
 
 [![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)
 
-> **_IMPORTANT:_** If you are new to CloudLab, it is highly recommended that you read through [CloudLab manual: Getting Started](http://docs.cloudlab.us/getting-started.html) before proceeding.
+> **_NOTE:_** If you are new to CloudLab, it is highly recommended that you read through [CloudLab manual: Getting Started](http://docs.cloudlab.us/getting-started.html) before proceeding.
 
 This repository contains:
 1. A CloudLab experiment profile `slate-localdev` for SLATE local development.
@@ -21,6 +21,8 @@ For convenience, this repository includes several pre-defined methods:
 The CloudLab profile is defined in `./profile.py` using the `geni-lib` Pip package. Further details on authoring the profile can be found in [CloudLab manual: Describing a profile with python and geni-lib](http://docs.cloudlab.us/geni-lib.html).
 
 ## Provision a CloudLab Experiment
+
+> **_WARNING:_** The experiment is not a private machine. As such, create a short-lived [GitHub ssh key](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) with no passphrase (this will become your `github_ssh_key` in Ansible).
 
 1. Create an experiment on CloudLab using this profile (`slate-localdev`).
 2. Clone this repository and copy `./ansible/playbook/group_vars/cloudlab.yml.tmpl` to `./ansible/playbook/group_vars/cloudlab.yml`.

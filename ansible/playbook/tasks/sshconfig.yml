@@ -1,0 +1,42 @@
+---
+- name: Determine ssh key path
+  shell: echo "$HOME/.github/ssh/id_{{ github_ssh_key_type }}"
+  args:
+    executable: /bin/bash
+  register: github_ssk_keypath
+
+- name: "Ensure ~/.ssh directory exists"
+  file:
+    path: "$HOME/.ssh"
+    state: directory
+    owner: "{{ ssh_user.stdout }}"
+    mode: 0700
+
+- name: "Add ssh config"
+  template:
+    src: 'templates/ssh_config.j2'
+    dest: '$HOME/.ssh/config'
+    owner: "{{ ssh_user.stdout }}"
+    mode: 0600
+
+- name: "Ensure GitHub ssh directory exists"
+  file:
+    path: "$HOME/.github/ssh"
+    state: directory
+    owner: "{{ ssh_user.stdout }}"
+    mode: 0755
+
+- name: "Verify GitHub ssh key file is present"
+  file:
+    path: "{{ github_ssk_keypath.stdout }}"
+    state: touch
+    owner: "{{ ssh_user.stdout }}"
+    mode: 0600
+    modification_time: preserve
+    access_time: preserve
+
+- name: "Update GitHub ssh key"
+  shell: |-
+    echo "{{ github_ssh_key }}" >| {{ github_ssk_keypath.stdout }}
+  args:
+    executable: /bin/bash
